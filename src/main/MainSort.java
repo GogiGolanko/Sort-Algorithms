@@ -14,8 +14,12 @@ public class MainSort {
 	private boolean order;
 	
 	public MainSort() {
-		sortType = SortType.BUBBLE;
-		order = true;
+		this(SortType.BUBBLE, true);
+	}
+	
+	public MainSort(SortType sortType, boolean order) {
+		this.sortType = sortType;
+		this.order = order;
 	}
 	
 	public long sort(Integer [] values) {
@@ -34,8 +38,8 @@ public class MainSort {
 			case SELECTION : sortable = new SelectionSort(); break;
 			case QUICK : sortable = new QuickSort(); break;
 			case HEAP : sortable = new HeapSort(); break;
+			default : sortable = new BubbleSort();
 		}
-		
 		return sortable;
 	}
 
